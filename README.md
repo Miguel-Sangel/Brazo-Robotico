@@ -1,7 +1,7 @@
 # Brazo-Robotico
 Brazo autonomo recoge piezas
 
-Este proyecto basado en ROS2, consiste en un brazo robotico capaz de recoger piezas cubicas rojas o verdes y depositarlas en recipientes diferente segun el color de la pieza.
+Este proyecto basado en ROS2, consiste en un brazo robotico capaz de recoger piezas cubicas rojas o verdes y depositarlas en recipientes diferentes segun el color de la pieza.
 
 # Demostración. 
 https://youtu.be/aQocPO_j5Mg 
@@ -23,9 +23,16 @@ Esquema de conexiones. (Los puertos GPIO de la Raspberry se pueden cambiar a su 
 ![Esquema (Encoder antiguo)](https://user-images.githubusercontent.com/97805074/149966309-c9ce76df-25f0-4d9f-94e3-49a38e96fd82.jpg)
 
 # Instalación
-Todo el proceso descrito a continuación esta orientado al sistema operativo Ubuntu Mate 18.04 LTS, que es el que admite la Raspberry  pi 3 Model B+ y el framework ROS. Para versiones posteriores tener en cuenta las indicaciones de los sitios oficiales.
+En la Raspberry Pi 5 instalaremos Ubuntu 24.04. Para ello previamente grabaremos una imagen del sistema en uan tarjeta microSSD mediannte la aplicacion 'Raspberry Pi Imager', proporcionada por el sitio oficial y siguiendo los pasos indicados en la propia aplicacion hasta finalizar la grabacion en la tarjeta. A continuacion procedemos a encender la Raspberry con la tarjeta insertada y se iniciara la instalacion del sistema Ubuntu siguiendo los pasos e introduciendo los datos requeridos. Cabe reseñar que aunque en el contexto del proyecto, se pretende un funcionamiento en forma desatendido, para el inicio y preparacion del sistema necesitaremos un telcado, raton y monitor.
 
-Por otro lado comentar que aun pudiendo conectar un monitor, teclado y ratón a la Raspberry, lo propio es acceder a ella a través de una conexión remota vía wifi o internet. En mi caso uso TigerVNC, https://tigervnc.org/, aunque existen otras aplicaciones y por lo tanto, que cada cual use la que mas le convenga.
+Sera necesario configurar una conexion wifi con acceso a internet por lo que si no se hace durante la instalacion, habra que hacerlo porsteriormente. Para añadir nuevas redes wifi ejecutaremos en una terminal este comando: nmcli device wifi connect "NOMBRE_DE_TU_WIFI" password "TU_CONTRASEÑA". 
+
+Por otro lado comentar que aun pudiendo conectar un monitor, teclado y ratón a la Raspberry, lo propio es acceder a ella a través de una conexión remota vía wifi o internet. En mi caso uso TigerVNC, https://tigervnc.org/, aunque existen otras aplicaciones y por lo tanto, que cada cual use la que mas le convenga. Para esto instalaremos en la Raspberry el servidor y en el PC con el que nos conectaremos, el cliente.
+	- Raspberry:
+		sudo apt update
+		sudo apt install tigervnc-standalone-server tigervnc-common
+	- PC:
+		
 
 En primer lugar instalaremos la biblioteca Pigpio para poder acceder a los puertos GPIO  de la Raspberry. Para esto seguiremos las indicaciones del sitio: https://abyz.me.uk/rpi/pigpio/download.html
 
